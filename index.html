@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduLearn</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+    }
+
+  
+    header {
+      background-color: bisque;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      color: #333;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #555;
+    }
+
+   
+    nav ul {
+      list-style: none;
+      background-color: #00bcd4;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ffeb3b;
+    }
+
+   
+    .Herobanner {
+      position: relative;
+      text-align: center;
+      color: white;
+    }
+
+    .Herobanner img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      opacity: 0.9;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .hero-overlay h1 {
+      font-size: 2.5em;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+
+    .hero-overlay button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #ff9800;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    .hero-overlay button:hover {
+      background-color: #e68900;
+    }
+
+    .coursecatogary {
+      display: flex;
+      justify-content: space-around;
+      padding: 30px;
+      background-color: #fff;
+    }
+
+    .coursecatogary .course {
+      background-color: #ffcc80;
+      padding: 30px;
+      border-radius: 10px;
+      width: 25%;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.2em;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
+
+
+    .popularcourse {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding: 30px;
+      background-color: #f5f5f5;
+    }
+
+    .popularcourse .course {
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .popularcourse img {
+      width: 100%;
+      height: 150px;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+
+    .popularcourse img:hover {
+      transform: scale(1.05);
+    }
+
+    .popularcourse button {
+      background-color: #2196f3;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .popularcourse button:hover {
+      background-color: #1976d2;
+    }
+
+    .instructors {
+      background-color: #fff;
+      padding: 30px;
+      border-top: 2px solid #ddd;
+      text-align: center;
+    }
+
+    .instructors article {
+      max-width: 600px;
+      margin: auto;
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+  
+    .Studentreviews {
+      background-color: #fafafa;
+      padding: 30px;
+    }
+
+    blockquote {
+      border-left: 5px solid #2196f3;
+      margin: 15px 0;
+      padding-left: 15px;
+      font-style: italic;
+      background: #e3f2fd;
+      border-radius: 5px;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 30px;
+      text-align: center;
+    }
+
+    form input {
+      padding: 10px;
+      width: 250px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin: 5px;
+    }
+
+    form button {
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #388e3c;
+    }
+
+
+    .contactinfo {
+      text-align: center;
+      background-color: #f0f0f0;
+      padding: 20px;
+      line-height: 1.8;
+    }
+
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>EduLearn</h1>
+    <p>Empowering Minds Through Knowledge</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Courses</a></li>
+      <li><a href="#">Instructors</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="Herobanner">
+    <img src="p1.png" alt="Learning Banner">
+    <div class="hero-overlay">
+      <h1>Learn Anywhere, Anytime</h1>
+      <button>Join Now</button>
+    </div>
+  </section>
+
+  <div class="coursecatogary">
+    <div class="course">Technology</div>
+    <div class="course">Business</div>
+    <div class="course">Art & Design</div>
+  </div>
+
+  <section class="popularcourse">
+    <div class="course">
+      <img src="web.png" alt="Web Design">
+      <h3>Web Design</h3>
+      <p>Instructor: George</p>
+      <button>Enroll Now</button>
+    </div>
+    <div class="course">
+      <img src="python.png" alt="Python Developer">
+      <h3>Python Developer</h3>
+      <p>Instructor: William</p>
+      <button>Enroll Now</button>
+    </div>
+    <div class="course">
+      <img src="devops.png" alt="DevOps">
+      <h3>DevOps</h3>
+      <p>Instructor: James</p>
+      <button>Enroll Now</button>
+    </div>
+    <div class="course">
+      <img src="data.png" alt="Data Analytics">
+      <h3>Data Analytics</h3>
+      <p>Instructor: Thomas</p>
+      <button>Enroll Now</button>
+    </div>
+  </section>
+
+  <section class="instructors">
+    <article>
+      <h2>Mr. William</h2>
+      <p>Mr. William is a senior software instructor with 10+ years of experience in AI, Python, and full-stack web development. He loves to share knowledge and inspire students to code creatively.</p>
+    </article>
+  </section>
+
+  <section class="Studentreviews">
+    <blockquote>
+      <strong>Muhammad Arif</strong><br>
+      <cite>This course brought all the realities of my job to bear. I can already see improvements in my work!</cite>
+    </blockquote>
+
+    <blockquote>
+      <strong>Muhammad Wasif</strong><br>
+      <cite>This course allowed me to understand project management practices. I’ve started applying them from day one!</cite>
+    </blockquote>
+
+    <blockquote>
+      <strong>Muhammad Ali</strong><br>
+      <cite>Concepts were clear and the methodology was simple yet powerful. Highly recommended!</cite>
+    </blockquote>
+  </section>
+
+  <form>
+    <h2>Newsletter Subscription</h2>
+    <input type="text" placeholder="Enter your name"><br>
+    <input type="email" placeholder="Enter your email"><br>
+    <button>Subscribe!</button>
+  </form>
+
+  <section class="contactinfo">
+    <h2>Contact Information</h2>
+    <p>
+      <strong>Main Campus:</strong><br>
+      St-4, Sector 17-D, National Highway, Karachi, Pakistan<br><br>
+      <strong>City Campus:</strong><br>
+      22-G, Block-6, PECHS, Karachi, Pakistan<br><br>
+      <strong>Email:</strong> info@nu.edu.pk<br>
+      <strong>Phone:</strong> (+92-213) 410-0541-6
+    </p>
+  </section>
+
+  <footer>
+    <p>© 2025 EduLearn. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
