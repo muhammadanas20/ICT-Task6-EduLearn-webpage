@@ -7,16 +7,13 @@
   <title>EduLearn</title>
 
   <style>
-    /* 1. Global Reset and Modern Base */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    /*
-    NEW: This is the core of the "shining gradient"
-  */
+
     @keyframes shineAnimation {
       0% {
         background-position: 0% 50%;
@@ -35,31 +32,31 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
         Helvetica, Arial, sans-serif;
       line-height: 1.6;
-      /* CHANGED: Set a base text color for readability */
+
       color: #333;
 
-      /* ADDED: The colorful gradient background */
+
       background: linear-gradient(135deg,
           #89f7fe 0%,
           #66a6ff 50%,
           #ff3e9d 100%);
-      /* ADDED: Make the gradient huge so we can animate its position */
+
       background-size: 400% 400%;
-      /* ADDED: Apply the "shining" animation */
+
       animation: shineAnimation 15s ease infinite;
     }
 
-    /* 2. Header and Navigation (Glassmorphism) */
+
     header {
-      /* CHANGED: Made transparent with a "frosted glass" effect */
+
       background-color: rgba(33, 37, 41, 0.7);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      /* For Safari */
+
       color: #ffffff;
       text-align: center;
       padding: 20px;
-      /* ADDED: A subtle border for the glass edge */
+
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
@@ -75,18 +72,18 @@
 
     nav ul {
       list-style: none;
-      /* CHANGED: Frosted glass effect for the nav bar */
+
       background-color: rgba(255, 255, 255, 0.5);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      /* For Safari */
+
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 10px 0;
-      /* CHANGED: More subtle shadow for the glass */
+
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-      /* ADDED: Subtle border */
+
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
@@ -96,12 +93,12 @@
 
     nav ul li a {
       text-decoration: none;
-      /* CHANGED: Darker text for readability on the light glass */
+
       color: #004a99;
       font-weight: bold;
       transition: color 0.3s ease;
       padding: 10px 5px;
-      /* ADDED: Subtle shadow to lift text off the glass */
+
       text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
     }
 
@@ -114,33 +111,33 @@
 
     nav ul li a:hover {
       color: #ff3e9d;
-      /* Use an accent color from the gradient */
+
     }
 
-    /* 3. Re-styled Greeting Message */
+
     #greeting-message {
       padding: 20px 25px;
-      /* CHANGED: Frosted glass effect */
+
       background-color: rgba(231, 245, 255, 0.6);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       color: #003366;
-      /* Darker text for readability */
+
       border-radius: 8px;
       text-align: center;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
         Helvetica, Arial, sans-serif;
       font-size: 1.3em;
       font-weight: 400;
-      /* CHANGED: Use a subtle glass border */
+
       border: 1px solid rgba(255, 255, 255, 0.2);
       margin: 20px auto;
       max-width: 900px;
-      /* CHANGED: Modern shadow for glass */
+
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
-    /* 4. Hero Banner (Mostly Unchanged) */
+
     .Herobanner {
       position: relative;
       text-align: center;
@@ -178,7 +175,7 @@
       font-size: 1em;
       font-weight: bold;
       transition: background-color 0.3s ease, transform 0.3s ease;
-      /* ADDED: Shadow to pop off the image */
+
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
 
@@ -187,22 +184,22 @@
       transform: scale(1.05);
     }
 
-    /* 5. Course Category Section */
+
     .coursecatogary {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       gap: 20px;
       padding: 40px 20px;
-      /* REMOVED solid background */
+
     }
 
     .coursecatogary .course {
-      /* CHANGED: Frosted glass card */
+
       background-color: rgba(255, 255, 255, 0.65);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      /* ADDED: Glass border */
+
       border: 1px solid rgba(255, 255, 255, 0.2);
       padding: 30px;
       border-radius: 8px;
@@ -211,7 +208,7 @@
       text-align: center;
       font-weight: bold;
       font-size: 1.2em;
-      /* CHANGED: Glass shadow */
+
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -221,27 +218,27 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     }
 
-    /* 6. Popular Courses Section */
+
     .popularcourse {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
       padding: 40px 20px;
-      /* REMOVED solid background */
+
       max-width: 1200px;
       margin: 0 auto;
     }
 
     .popularcourse .course {
-      /* CHANGED: Frosted glass card */
+
       background: rgba(255, 255, 255, 0.65);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      /* ADDED: Glass border */
+
       border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 8px;
       text-align: center;
-      /* CHANGED: Glass shadow */
+
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
       overflow: hidden;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -278,20 +275,20 @@
       background-color: #0056b3;
     }
 
-    /* 7. Other Content Sections (Instructors, Reviews, Contact) */
+
     .instructors,
     .Studentreviews,
     form,
     .contactinfo {
       padding: 40px 20px;
       text-align: center;
-      /* REMOVED solid background */
+
     }
 
     .instructors article {
       max-width: 600px;
       margin: auto;
-      /* CHANGED: Frosted glass card */
+
       background: rgba(255, 255, 255, 0.65);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
@@ -306,7 +303,7 @@
       margin: 15px auto;
       padding: 15px 20px;
       font-style: italic;
-      /* CHANGED: Frosted glass card */
+
       background: rgba(255, 255, 255, 0.6);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
@@ -315,7 +312,6 @@
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     }
 
-    /* 8. Modern Form Styling */
     form {
       display: flex;
       justify-content: center;
@@ -329,7 +325,7 @@
     form input {
       padding: 12px 15px;
       border-radius: 8px;
-      /* CHANGED: Glass style input */
+
       background-color: rgba(255, 255, 255, 0.5);
       border: 1px solid rgba(255, 255, 255, 0.3);
       color: #333;
@@ -339,7 +335,7 @@
       min-width: 200px;
     }
 
-    /* ADDED: Style for placeholder text in glass inputs */
+
     form input::placeholder {
       color: #555;
     }
@@ -359,20 +355,20 @@
       background-color: #218838;
     }
 
-    /* 9. Footer */
+
     .contactinfo {
       line-height: 1.8;
     }
 
     footer {
-      /* CHANGED: Frosted glass footer */
+
       background-color: rgba(33, 37, 41, 0.7);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       color: white;
       text-align: center;
       padding: 20px;
-      /* ADDED: Glass border */
+
       border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
   </style>
