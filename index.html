@@ -1,64 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EduLearn</title>
+
   <style>
+    /* 1. Global Reset and Modern Base */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-      background-color: #f9f9f9;
+    /*
+    NEW: This is the core of the "shining gradient"
+  */
+    @keyframes shineAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
     }
 
-  
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      /* CHANGED: Set a base text color for readability */
+      color: #333;
+
+      /* ADDED: The colorful gradient background */
+      background: linear-gradient(135deg,
+          #89f7fe 0%,
+          #66a6ff 50%,
+          #ff3e9d 100%);
+      /* ADDED: Make the gradient huge so we can animate its position */
+      background-size: 400% 400%;
+      /* ADDED: Apply the "shining" animation */
+      animation: shineAnimation 15s ease infinite;
+    }
+
+    /* 2. Header and Navigation (Glassmorphism) */
     header {
-      background-color: bisque;
+      /* CHANGED: Made transparent with a "frosted glass" effect */
+      background-color: rgba(33, 37, 41, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      /* For Safari */
+      color: #ffffff;
       text-align: center;
       padding: 20px;
+      /* ADDED: A subtle border for the glass edge */
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     header h1 {
       font-size: 2.5em;
-      color: #333;
+      color: #ffffff;
     }
 
     header p {
       font-size: 1.2em;
-      color: #555;
+      color: #dee2e6;
     }
 
-   
     nav ul {
       list-style: none;
-      background-color: #00bcd4;
-      text-align: center;
+      /* CHANGED: Frosted glass effect for the nav bar */
+      background-color: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      /* For Safari */
+      display: flex;
+      justify-content: center;
+      align-items: center;
       padding: 10px 0;
+      /* CHANGED: More subtle shadow for the glass */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      /* ADDED: Subtle border */
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     nav ul li {
-      display: inline-block;
-      margin: 0 20px;
+      margin: 0 15px;
     }
 
     nav ul li a {
       text-decoration: none;
-      color: white;
+      /* CHANGED: Darker text for readability on the light glass */
+      color: #004a99;
       font-weight: bold;
-      transition: 0.3s;
+      transition: color 0.3s ease;
+      padding: 10px 5px;
+      /* ADDED: Subtle shadow to lift text off the glass */
+      text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
     }
+
+    nav ul li a.active {
+      color: #000000;
+      border-bottom: 2px solid #000000;
+    }
+
+
 
     nav ul li a:hover {
-      color: #ffeb3b;
+      color: #ff3e9d;
+      /* Use an accent color from the gradient */
     }
 
-   
+    /* 3. Re-styled Greeting Message */
+    #greeting-message {
+      padding: 20px 25px;
+      /* CHANGED: Frosted glass effect */
+      background-color: rgba(231, 245, 255, 0.6);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: #003366;
+      /* Darker text for readability */
+      border-radius: 8px;
+      text-align: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif;
+      font-size: 1.3em;
+      font-weight: 400;
+      /* CHANGED: Use a subtle glass border */
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      margin: 20px auto;
+      max-width: 900px;
+      /* CHANGED: Modern shadow for glass */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 4. Hero Banner (Mostly Unchanged) */
     .Herobanner {
       position: relative;
       text-align: center;
@@ -69,7 +151,7 @@
       width: 100%;
       height: 400px;
       object-fit: cover;
-      opacity: 0.9;
+      filter: brightness(0.6);
     }
 
     .hero-overlay {
@@ -80,164 +162,227 @@
     }
 
     .hero-overlay h1 {
-      font-size: 2.5em;
-      background: rgba(0, 0, 0, 0.5);
+      font-size: 2.8em;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
       padding: 10px 20px;
-      border-radius: 10px;
     }
 
     .hero-overlay button {
       margin-top: 15px;
-      padding: 10px 20px;
+      padding: 12px 24px;
       background-color: #ff9800;
       border: none;
       color: white;
       cursor: pointer;
-      border-radius: 5px;
+      border-radius: 8px;
       font-size: 1em;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      /* ADDED: Shadow to pop off the image */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
 
     .hero-overlay button:hover {
       background-color: #e68900;
+      transform: scale(1.05);
     }
 
+    /* 5. Course Category Section */
     .coursecatogary {
       display: flex;
-      justify-content: space-around;
-      padding: 30px;
-      background-color: #fff;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 40px 20px;
+      /* REMOVED solid background */
     }
 
     .coursecatogary .course {
-      background-color: #ffcc80;
+      /* CHANGED: Frosted glass card */
+      background-color: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      /* ADDED: Glass border */
+      border: 1px solid rgba(255, 255, 255, 0.2);
       padding: 30px;
-      border-radius: 10px;
-      width: 25%;
+      border-radius: 8px;
+      flex-basis: 250px;
+      flex-grow: 1;
       text-align: center;
       font-weight: bold;
       font-size: 1.2em;
-      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+      /* CHANGED: Glass shadow */
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
+    .coursecatogary .course:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
 
+    /* 6. Popular Courses Section */
     .popularcourse {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
-      padding: 30px;
-      background-color: #f5f5f5;
+      padding: 40px 20px;
+      /* REMOVED solid background */
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .popularcourse .course {
-      background: white;
-      padding: 10px;
-      border-radius: 10px;
+      /* CHANGED: Frosted glass card */
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      /* ADDED: Glass border */
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
       text-align: center;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+      /* CHANGED: Glass shadow */
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .popularcourse .course:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     }
 
     .popularcourse img {
       width: 100%;
       height: 150px;
-      border-radius: 10px;
-      transition: transform 0.3s;
+      object-fit: cover;
+      border-radius: 0;
     }
 
-    .popularcourse img:hover {
-      transform: scale(1.05);
+    .popularcourse .course-content {
+      padding: 20px;
     }
 
     .popularcourse button {
-      background-color: #2196f3;
-      color: white;
+      background-color: #007bff;
+      color: #ffffff;
       border: none;
-      padding: 8px 15px;
-      border-radius: 5px;
+      padding: 10px 18px;
+      border-radius: 8px;
       cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
     }
 
     .popularcourse button:hover {
-      background-color: #1976d2;
+      background-color: #0056b3;
     }
 
-    .instructors {
-      background-color: #fff;
-      padding: 30px;
-      border-top: 2px solid #ddd;
+    /* 7. Other Content Sections (Instructors, Reviews, Contact) */
+    .instructors,
+    .Studentreviews,
+    form,
+    .contactinfo {
+      padding: 40px 20px;
       text-align: center;
+      /* REMOVED solid background */
     }
 
     .instructors article {
       max-width: 600px;
       margin: auto;
-      border: 1px solid #ccc;
+      /* CHANGED: Frosted glass card */
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       padding: 20px;
-      border-radius: 10px;
-    }
-
-  
-    .Studentreviews {
-      background-color: #fafafa;
-      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     }
 
     blockquote {
-      border-left: 5px solid #2196f3;
-      margin: 15px 0;
-      padding-left: 15px;
+      border-left: 5px solid #007bff;
+      margin: 15px auto;
+      padding: 15px 20px;
       font-style: italic;
-      background: #e3f2fd;
-      border-radius: 5px;
+      /* CHANGED: Frosted glass card */
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 8px;
+      max-width: 700px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     }
 
+    /* 8. Modern Form Styling */
     form {
-      background-color: #fff;
-      padding: 30px;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     form input {
-      padding: 10px;
-      width: 250px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      margin: 5px;
+      padding: 12px 15px;
+      border-radius: 8px;
+      /* CHANGED: Glass style input */
+      background-color: rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #333;
+      margin: 0;
+      font-size: 1em;
+      flex-grow: 1;
+      min-width: 200px;
+    }
+
+    /* ADDED: Style for placeholder text in glass inputs */
+    form input::placeholder {
+      color: #555;
     }
 
     form button {
-      padding: 10px 20px;
-      background-color: #4caf50;
+      padding: 12px 24px;
+      background-color: #28a745;
       color: white;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
     }
 
     form button:hover {
-      background-color: #388e3c;
+      background-color: #218838;
     }
 
-
+    /* 9. Footer */
     .contactinfo {
-      text-align: center;
-      background-color: #f0f0f0;
-      padding: 20px;
       line-height: 1.8;
     }
 
-
     footer {
-      background-color: #333;
+      /* CHANGED: Frosted glass footer */
+      background-color: rgba(33, 37, 41, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       color: white;
       text-align: center;
-      padding: 15px;
+      padding: 20px;
+      /* ADDED: Glass border */
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
   </style>
 </head>
+
 <body>
 
   <header>
     <h1>EduLearn</h1>
+    <h2 id="greeting-message"></h2>
     <p>Empowering Minds Through Knowledge</p>
   </header>
 
@@ -254,7 +399,7 @@
     <img src="p1.png" alt="Learning Banner">
     <div class="hero-overlay">
       <h1>Learn Anywhere, Anytime</h1>
-      <button>Join Now</button>
+      <button id="join-btn">Join Now</button>
     </div>
   </section>
 
@@ -263,38 +408,45 @@
     <div class="course">Business</div>
     <div class="course">Art & Design</div>
   </div>
+  <p id="course-description" style="text-align:center; padding:10px; color:#333; font-weight:bold;"></p>
+
 
   <section class="popularcourse">
     <div class="course">
       <img src="web.png" alt="Web Design">
       <h3>Web Design</h3>
       <p>Instructor: George</p>
-      <button>Enroll Now</button>
+      <button class="enroll-btn">Enroll Now</button>
+
     </div>
     <div class="course">
       <img src="python.png" alt="Python Developer">
       <h3>Python Developer</h3>
       <p>Instructor: William</p>
-      <button>Enroll Now</button>
+      <button class="enroll-btn">Enroll Now</button>
+
     </div>
     <div class="course">
       <img src="devops.png" alt="DevOps">
       <h3>DevOps</h3>
       <p>Instructor: James</p>
-      <button>Enroll Now</button>
+      <button class="enroll-btn">Enroll Now</button>
+
     </div>
     <div class="course">
       <img src="data.png" alt="Data Analytics">
       <h3>Data Analytics</h3>
       <p>Instructor: Thomas</p>
-      <button>Enroll Now</button>
+      <button class="enroll-btn">Enroll Now</button>
+
     </div>
   </section>
 
   <section class="instructors">
     <article>
       <h2>Mr. William</h2>
-      <p>Mr. William is a senior software instructor with 10+ years of experience in AI, Python, and full-stack web development. He loves to share knowledge and inspire students to code creatively.</p>
+      <p>Mr. William is a senior software instructor with 10+ years of experience in AI, Python, and full-stack web
+        development. He loves to share knowledge and inspire students to code creatively.</p>
     </article>
   </section>
 
@@ -306,7 +458,8 @@
 
     <blockquote>
       <strong>Muhammad Wasif</strong><br>
-      <cite>This course allowed me to understand project management practices. I’ve started applying them from day one!</cite>
+      <cite>This course allowed me to understand project management practices. I’ve started applying them from day
+        one!</cite>
     </blockquote>
 
     <blockquote>
@@ -337,6 +490,8 @@
   <footer>
     <p>© 2025 EduLearn. All Rights Reserved.</p>
   </footer>
+  <script src="script.js"></script>
 
 </body>
+
 </html>
